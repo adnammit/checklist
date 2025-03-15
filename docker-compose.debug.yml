@@ -1,11 +1,11 @@
 # Please refer https://aka.ms/HTTPSinContainer on how to setup an https developer certificate for your ASP.NET Core service.
 
 services:
-  checklistapi:
+  service:
     container_name: service
-    image: checklist-api
+    image: checklist-service
     build:
-      context: ./ChecklistAPI
+      context: ./service
       dockerfile: dockerfile
       args:
         - configuration=Debug
@@ -18,20 +18,20 @@ services:
       - DOTNET_HOSTBUILDER__RELOADCONFIGONCHANGE=false
     volumes:
       - ~/.vsdbg:/remote_debugger:rw
-      # - /ChecklistAPI:/app
+      # - /service:/app
     working_dir: /app
     command: ["dotnet", "ChecklistAPI.dll"]
 
-  web:
+  client:
     container_name: client
-    image: shopping-list-client
+    image: checklist-client
     build:
-      context: ./shopping-list-client
+      context: ./client
       dockerfile: dockerfile
     ports:
       - "3000:3000"
     volumes:
-      - ./shopping-list-client:/app
+      - ./client:/app
       - /app/node_modules
     working_dir: /app
     environment:

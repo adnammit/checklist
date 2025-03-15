@@ -3,10 +3,10 @@
 version: '3.4'
 
 services:
-  checklistapi:
-    image: checklistapi
+  service:
+    image: service
     build:
       context: .
-      dockerfile: ChecklistAPI/dockerfile
+      dockerfile: service/dockerfile
     ports:
       - 5064:5064

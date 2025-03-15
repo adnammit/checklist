@@ -6,9 +6,9 @@
 			"type": "coreclr",
 			"request": "launch",
 			"preLaunchTask": "build",
-			"program": "${workspaceFolder}/ChecklistAPI/bin/Debug/net9.0/ChecklistAPI.dll",
+			"program": "${workspaceFolder}/service/bin/Debug/net9.0/ChecklistAPI.dll",
 			"args": [],
-			"cwd": "${workspaceFolder}/ChecklistAPI",
+			"cwd": "${workspaceFolder}/service",
 			"stopAtEntry": false,
 			"serverReadyAction": {
 				"action": "openExternally",
@@ -36,7 +36,7 @@
 				"file": "docker-compose.debug.yml"
 			},
 			"netCore": {
-				"appProject": "${workspaceFolder}/ChecklistAPI/ChecklistAPI.csproj"
+				"appProject": "${workspaceFolder}/service/ChecklistAPI.csproj"
 			}
 		},
 		// {
@@ -45,7 +45,7 @@
 		// 	"request": "launch",
 		// 	"preLaunchTask": "docker-run: debug",
 		// 	"netCore": {
-		// 		"appProject": "${workspaceFolder}/ChecklistAPI/ChecklistAPI.csproj"
+		// 		"appProject": "${workspaceFolder}/service/ChecklistAPI.csproj"
 		// 	}
 		// },
 		{

@@ -46,12 +46,12 @@
 			"dockerBuild": {
 				"tag": "shoppinglist:dev",
 				"target": "build",
-				"dockerfile": "${workspaceFolder}/ChecklistAPI/dockerfile",
-				"context": "${workspaceFolder}/ChecklistAPI",
+				"dockerfile": "${workspaceFolder}/service/dockerfile",
+				"context": "${workspaceFolder}/service",
 				"pull": true
 			},
 			"netCore": {
-				"appProject": "${workspaceFolder}/ChecklistAPI/ChecklistAPI.csproj"
+				"appProject": "${workspaceFolder}/service/ChecklistAPI.csproj"
 			}
 		},
 		{
@@ -62,8 +62,8 @@
 			],
 			"dockerBuild": {
 				"tag": "shoppinglist:latest",
-				"dockerfile": "${workspaceFolder}/ChecklistAPI/Dockerfile",
-				"context": "${workspaceFolder}/ChecklistAPI",
+				"dockerfile": "${workspaceFolder}/service/dockerfile",
+				"context": "${workspaceFolder}/service",
 				"platform": {
 					"os": "linux",
 					"architecture": "amd64"
@@ -71,7 +71,7 @@
 				"pull": true
 			},
 			"netCore": {
-				"appProject": "${workspaceFolder}/ChecklistAPI/ChecklistAPI.csproj"
+				"appProject": "${workspaceFolder}/service/ChecklistAPI.csproj"
 			}
 		},
 		{
@@ -82,7 +82,7 @@
 			],
 			"dockerRun": {},
 			"netCore": {
-				"appProject": "${workspaceFolder}/ChecklistAPI/ChecklistAPI.csproj",
+				"appProject": "${workspaceFolder}/service/ChecklistAPI.csproj",
 				"enableDebugging": true
 			}
 		},
@@ -94,7 +94,7 @@
 			],
 			"dockerRun": {},
 			"netCore": {
-				"appProject": "${workspaceFolder}/ChecklistAPI/ChecklistAPI.csproj"
+				"appProject": "${workspaceFolder}/service/ChecklistAPI.csproj"
 			}
 		},
 		{
