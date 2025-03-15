@@ -2,12 +2,11 @@
 
 services:
   checklistapi:
-    image: checklistapi
+    container_name: service
+    image: checklist-api
     build:
       context: ./ChecklistAPI
-      dockerfile: Dockerfile
-      # context: .
-      # dockerfile: ChecklistAPI/Dockerfile
+      dockerfile: dockerfile
       args:
         - configuration=Debug
     ports:
@@ -19,6 +18,24 @@ services:
       - DOTNET_HOSTBUILDER__RELOADCONFIGONCHANGE=false
     volumes:
       - ~/.vsdbg:/remote_debugger:rw
-      # - .:/app
+      # - /ChecklistAPI:/app
     working_dir: /app
     command: ["dotnet", "ChecklistAPI.dll"]
+
+  web:
+    container_name: client
+    image: shopping-list-client
+    build:
+      context: ./shopping-list-client
+      dockerfile: dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./shopping-list-client:/app
+      - /app/node_modules
+    working_dir: /app
+    environment:
+      NODE_ENV: development
+    stdin_open: true
+    tty: true
+    command: npm run dev

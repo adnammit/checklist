@@ -46,7 +46,7 @@
 			"dockerBuild": {
 				"tag": "shoppinglist:dev",
 				"target": "build",
-				"dockerfile": "${workspaceFolder}/ChecklistAPI/Dockerfile",
+				"dockerfile": "${workspaceFolder}/ChecklistAPI/dockerfile",
 				"context": "${workspaceFolder}/ChecklistAPI",
 				"pull": true
 			},
@@ -105,9 +105,21 @@
 				"-f",
 				"docker-compose.debug.yml",
 				"up",
-				"--build"
+				"--build",
+				"-d"
 			],
 			"problemMatcher": []
-		}
+		},
+		{
+			"type": "shell",
+			"label": "docker-compose down: debug",
+			"command": "docker-compose",
+			"args": [
+				"-f",
+				"docker-compose.debug.yml",
+				"down",
+			],
+			"problemMatcher": []
+		},
 	]
 }

@@ -39,14 +39,38 @@
 				"appProject": "${workspaceFolder}/ChecklistAPI/ChecklistAPI.csproj"
 			}
 		},
+		// {
+		// 	"name": "Docker .NET Launch",
+		// 	"type": "docker",
+		// 	"request": "launch",
+		// 	"preLaunchTask": "docker-run: debug",
+		// 	"netCore": {
+		// 		"appProject": "${workspaceFolder}/ChecklistAPI/ChecklistAPI.csproj"
+		// 	}
+		// },
 		{
-			"name": "Docker .NET Launch",
+			"name": "Docker .NET Debug",
 			"type": "docker",
-			"request": "launch",
-			"preLaunchTask": "docker-run: debug",
+			"request": "attach",
+			"containerName": "service",
+			"platform": "netCore",
 			"netCore": {
-				"appProject": "${workspaceFolder}/ChecklistAPI/ChecklistAPI.csproj"
-			}
+				"entryPoint": "ChecklistAPI.dll",
+				"debuggerPath": "/remote_debugger/vsdbg"
+			},
+			// "sourceFileMap": {
+			// 	"/workspaces/BroadlumeX": "/workspaces/BroadlumeX"
+			// },
+			"postDebugTask": "docker-compose down: debug",
+		},
+	],
+	"compounds": [
+		{
+			"name": "Whole Enchilada",
+			"configurations": [
+				"Docker .NET Debug",
+			],
+			"preLaunchTask": "docker-compose up: debug"
 		}
 	]
 }

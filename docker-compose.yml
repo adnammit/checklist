@@ -7,6 +7,6 @@ services:
     image: checklistapi
     build:
       context: .
-      dockerfile: ChecklistAPI/Dockerfile
+      dockerfile: ChecklistAPI/dockerfile
     ports:
       - 5064:5064
