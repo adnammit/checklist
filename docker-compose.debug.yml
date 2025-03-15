@@ -1,0 +1,24 @@
+# Please refer https://aka.ms/HTTPSinContainer on how to setup an https developer certificate for your ASP.NET Core service.
+
+services:
+  checklistapi:
+    image: checklistapi
+    build:
+      context: ./ChecklistAPI
+      dockerfile: Dockerfile
+      # context: .
+      # dockerfile: ChecklistAPI/Dockerfile
+      args:
+        - configuration=Debug
+    ports:
+      - 5064:5064
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://0.0.0.0:5064
+      - DOTNET_USE_POLLING_FILE_WATCHER=1
+      - DOTNET_HOSTBUILDER__RELOADCONFIGONCHANGE=false
+    volumes:
+      - ~/.vsdbg:/remote_debugger:rw
+      # - .:/app
+    working_dir: /app
+    command: ["dotnet", "ChecklistAPI.dll"]

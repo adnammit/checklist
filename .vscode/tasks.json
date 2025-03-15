@@ -1,0 +1,113 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "build",
+			"command": "dotnet",
+			"type": "process",
+			"args": [
+				"build",
+				"${workspaceFolder}/shopping-list.sln",
+				"/property:GenerateFullPaths=true",
+				"/consoleloggerparameters:NoSummary;ForceNoAlign"
+			],
+			"problemMatcher": "$msCompile"
+		},
+		{
+			"label": "publish",
+			"command": "dotnet",
+			"type": "process",
+			"args": [
+				"publish",
+				"${workspaceFolder}/shopping-list.sln",
+				"/property:GenerateFullPaths=true",
+				"/consoleloggerparameters:NoSummary;ForceNoAlign"
+			],
+			"problemMatcher": "$msCompile"
+		},
+		{
+			"label": "watch",
+			"command": "dotnet",
+			"type": "process",
+			"args": [
+				"watch",
+				"run",
+				"--project",
+				"${workspaceFolder}/shopping-list.sln"
+			],
+			"problemMatcher": "$msCompile"
+		},
+		{
+			"type": "docker-build",
+			"label": "docker-build: debug",
+			"dependsOn": [
+				"build"
+			],
+			"dockerBuild": {
+				"tag": "shoppinglist:dev",
+				"target": "build",
+				"dockerfile": "${workspaceFolder}/ChecklistAPI/Dockerfile",
+				"context": "${workspaceFolder}/ChecklistAPI",
+				"pull": true
+			},
+			"netCore": {
+				"appProject": "${workspaceFolder}/ChecklistAPI/ChecklistAPI.csproj"
+			}
+		},
+		{
+			"type": "docker-build",
+			"label": "docker-build: release",
+			"dependsOn": [
+				"build"
+			],
+			"dockerBuild": {
+				"tag": "shoppinglist:latest",
+				"dockerfile": "${workspaceFolder}/ChecklistAPI/Dockerfile",
+				"context": "${workspaceFolder}/ChecklistAPI",
+				"platform": {
+					"os": "linux",
+					"architecture": "amd64"
+				},
+				"pull": true
+			},
+			"netCore": {
+				"appProject": "${workspaceFolder}/ChecklistAPI/ChecklistAPI.csproj"
+			}
+		},
+		{
+			"type": "docker-run",
+			"label": "docker-run: debug",
+			"dependsOn": [
+				"docker-build: debug"
+			],
+			"dockerRun": {},
+			"netCore": {
+				"appProject": "${workspaceFolder}/ChecklistAPI/ChecklistAPI.csproj",
+				"enableDebugging": true
+			}
+		},
+		{
+			"type": "docker-run",
+			"label": "docker-run: release",
+			"dependsOn": [
+				"docker-build: release"
+			],
+			"dockerRun": {},
+			"netCore": {
+				"appProject": "${workspaceFolder}/ChecklistAPI/ChecklistAPI.csproj"
+			}
+		},
+		{
+			"type": "shell",
+			"label": "docker-compose up: debug",
+			"command": "docker-compose",
+			"args": [
+				"-f",
+				"docker-compose.debug.yml",
+				"up",
+				"--build"
+			],
+			"problemMatcher": []
+		}
+	]
+}

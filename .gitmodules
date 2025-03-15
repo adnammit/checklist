@@ -1,0 +1,6 @@
+[submodule "ChecklistAPI"]
+	path = ChecklistAPI
+	url = github.com:adnammit/checklist-api.git
+[submodule "shopping-list-client"]
+	path = shopping-list-client
+	url = github.com:adnammit/shopping-list-client.git

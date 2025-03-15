@@ -1,0 +1,52 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": ".NET Core Launch (web)",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/ChecklistAPI/bin/Debug/net9.0/ChecklistAPI.dll",
+			"args": [],
+			"cwd": "${workspaceFolder}/ChecklistAPI",
+			"stopAtEntry": false,
+			"serverReadyAction": {
+				"action": "openExternally",
+				"pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+			},
+			"env": {
+				"ASPNETCORE_ENVIRONMENT": "Development"
+			},
+			"sourceFileMap": {
+				"/Views": "${workspaceFolder}/Views"
+			}
+		},
+		{
+			"name": ".NET Core Attach",
+			"type": "coreclr",
+			"request": "attach"
+		},
+		{
+			"name": "Docker .NET Launch (Compose)",
+			"type": "docker",
+			"request": "launch",
+			"preLaunchTask": "docker-compose up: debug",
+			"dockerCompose": {
+				"service": "checklistapi",
+				"file": "docker-compose.debug.yml"
+			},
+			"netCore": {
+				"appProject": "${workspaceFolder}/ChecklistAPI/ChecklistAPI.csproj"
+			}
+		},
+		{
+			"name": "Docker .NET Launch",
+			"type": "docker",
+			"request": "launch",
+			"preLaunchTask": "docker-run: debug",
+			"netCore": {
+				"appProject": "${workspaceFolder}/ChecklistAPI/ChecklistAPI.csproj"
+			}
+		}
+	]
+}
