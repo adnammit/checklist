@@ -1,17 +1,35 @@
-# Shopping List Name TBD
+# Shopping List App, Name TBD
 
-React front end with a .NET API 
+Monorepo using git submodules and docker-compose:
+* React front end 
+* .NET API
+* postgres db
 
-## Running in Docker
-just F5 it bro! current state of affairs:
-* Docker .NET Launch task: gives you debugging, random port will be assigned
-	{base_url}/list/e4d81920-987c-495f-85bd-2847951dbef0
-* Docker .NET Launch (Compose) task: no debugging, but you get a consistent port
-	http://localhost:5064/list/e4d81920-987c-495f-85bd-2847951dbef0
-* note that any valid guid will do for now
+## Getting Started
+* clone this repo using `--recurse` to get the submodules also
+* for db setup, you will need to create an `.env` file in the root of the project with the following variables:
+	* `POSTGRES_USER=`
+	* `POSTGRES_PASSWORD=`
+	* `POSTGRES_DB=`
+* launch the vscode task "Whole Enchilada"
+	* builds all containers with `docker-compose`
+	* attaches the debugger to the API
+	* hot-reloading for the React app
+* [client url](localhost:3000)
+* [service url](localhost:5064) 
+	* [default test endpoint](http://localhost:5064/test)
+	* [list items url](http://localhost:5064/list)
+* [db url](localhost:5433)
+* [metabase](localhost:3030) (not working yet)
+* open api and swagger (not working yet)
+
+## Production
+* [client](https://shop.amandaryman.com/list/)
 
 ## Todo
 * **NEXT**
+	* [dbup and dapper](https://medium.com/cheranga/database-migrations-using-dbup-in-an-asp-net-core-web-api-application-c24ccfe0cb43)
+	* metabase y u no?
 	* create boilerplate for monorepo
 	* make two big decisions: backend/db/persistence, and frontend framework
 	* edit item
@@ -22,7 +40,8 @@ just F5 it bro! current state of affairs:
 	* update this readme with notes about ports, urls, etc
 	* add prod dockerization
 		* [dockerizing react](https://www.innokrea.com/dockerizing-the-frontend-do-it-right-with-react-js-vite/)
+		* [dockerizing .NET](https://learn.microsoft.com/en-us/dotnet/core/docker/build-container)
 * database
 	* get db with migrations up and running
-	* EF vs dbup?
+	* EF vs [dbup](https://github.com/DbUp/DbUp)?
 
