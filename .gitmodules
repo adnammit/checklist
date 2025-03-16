@@ -1,6 +1,6 @@
 [submodule "service"]
 	path = service
-	url = github.com:adnammit/checklist-api.git
+	url = https://github.com/adnammit/checklist-api.git
 [submodule "client"]
 	path = client
-	url = github.com:adnammit/shopping-list-client.git
+	url = https://github.com/adnammit/shopping-list-client.git
