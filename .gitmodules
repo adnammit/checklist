@@ -3,7 +3,7 @@
 	url = https://github.com/adnammit/checklist-api.git
 [submodule "client"]
 	path = client
-	url = https://github.com/adnammit/shopping-list-client.git
+	url = https://github.com/adnammit/checklist-client.git
 [submodule "db"]
 	path = db
 	url = https://github.com/adnammit/checklist-db.git

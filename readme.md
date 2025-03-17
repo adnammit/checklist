@@ -1,16 +1,23 @@
-# Shopping List App, Name TBD
+# Shopping Time! 💅
 
-Monorepo using git submodules and docker-compose:
-* React front end 
-* .NET API
-* postgres db
+I couldn't find a shopping app that I like for a price that I was willing to pay, so I made my own
+
+[let's go shopping](https://shop.amandaryman.com/list)
+
+Multirepo using git submodules and docker-compose:
+* Client: React + TypeScript + Vite
+* API: ASP.NET Core + Entity Framework
+* DB: PostgreSQL
 
 ## Getting Started
-* clone this repo using `--recurse` to get the submodules also
+* clone this repo using `--recurse` to get the submodules
 * for db setup, you will need to create an `.env` file in the root of the project with the following variables:
-	* `POSTGRES_USER=`
-	* `POSTGRES_PASSWORD=`
-	* `POSTGRES_DB=`
+	```
+		POSTGRES_USER=
+		POSTGRES_PASSWORD=
+		POSTGRES_HOST=
+		POSTGRES_DB=
+	```
 * launch the vscode task "Whole Enchilada"
 	* builds all containers with `docker-compose`
 	* attaches the debugger to the API
@@ -28,9 +35,10 @@ Monorepo using git submodules and docker-compose:
 
 ## Todo
 * **NEXT**
+	* prod deployments
 	* [dbup and dapper](https://medium.com/cheranga/database-migrations-using-dbup-in-an-asp-net-core-web-api-application-c24ccfe0cb43)
 	* metabase y u no?
-	* create boilerplate for monorepo
+	* create boilerplate for multirepo
 	* make two big decisions: backend/db/persistence, and frontend framework
 	* edit item
 	* delete item
@@ -43,5 +51,8 @@ Monorepo using git submodules and docker-compose:
 		* [dockerizing .NET](https://learn.microsoft.com/en-us/dotnet/core/docker/build-container)
 * database
 	* get db with migrations up and running
-	* EF vs [dbup](https://github.com/DbUp/DbUp)?
-
+	* serial vs uuid for pk
+	* [dbup](https://github.com/DbUp/DbUp)
+	* [EF vs Dapper](https://youtu.be/7ZcbHFmgVAI?si=8_YyrjMR3TzqQM9s)
+* client
+	* add husky pre-commit hooks for prettier and eslint
