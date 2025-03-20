@@ -58,9 +58,9 @@
 				"entryPoint": "ChecklistAPI.dll",
 				"debuggerPath": "/remote_debugger/vsdbg"
 			},
-			// "sourceFileMap": {
-			// 	"/workspaces/BroadlumeX": "/workspaces/BroadlumeX"
-			// },
+			"sourceFileMap": {
+				"/src": "${workspaceFolder}/service"
+			},
 			"postDebugTask": "docker-compose down: debug",
 		},
 	],

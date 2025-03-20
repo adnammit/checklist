@@ -6,12 +6,12 @@ I couldn't find a shopping app that I like for a price that I was willing to pay
 
 Multirepo using git submodules and docker-compose:
 * Client: React + TypeScript + Vite
-* API: ASP.NET Core + Entity Framework
+* API: ASP.NET Core + Entity Framework (or Dapper??)
 * DB: PostgreSQL
 
 ## Getting Started
 * clone this repo using `--recurse` to get the submodules
-* for db setup, you will need to create an `.env` file in the root of the project with the following variables:
+* for db setup, you will need to create an `.env` file in the root of the project with the following variables (hint: check appsettings for dummy local values):
 	```
 		POSTGRES_USER=
 		POSTGRES_PASSWORD=
@@ -32,6 +32,9 @@ Multirepo using git submodules and docker-compose:
 
 ## Production
 * [client](https://shop.amandaryman.com/list/)
+
+## References
+* [debugging .NET with docker-compose](https://code.visualstudio.com/docs/containers/docker-compose#_net) for more info
 
 ## Todo
 * **NEXT**
@@ -56,3 +59,5 @@ Multirepo using git submodules and docker-compose:
 	* [EF vs Dapper](https://youtu.be/7ZcbHFmgVAI?si=8_YyrjMR3TzqQM9s)
 * client
 	* add husky pre-commit hooks for prettier and eslint
+* service
+	* add repo hierarchy to match entity hierarchy
