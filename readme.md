@@ -61,3 +61,4 @@ Multirepo using git submodules and docker-compose:
 	* add husky pre-commit hooks for prettier and eslint
 * service
 	* add repo hierarchy to match entity hierarchy
+	* error handling
