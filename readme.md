@@ -26,6 +26,7 @@ Multirepo using git submodules and docker-compose:
 * [service url](localhost:5064) 
 	* [default test endpoint](http://localhost:5064/test)
 	* [list items url](http://localhost:5064/list)
+	* [list item url](http://localhost:5064/list/item/1)
 * [db url](localhost:5433)
 * [metabase](localhost:3030) (not working yet)
 * open api and swagger (not working yet)
@@ -34,31 +35,33 @@ Multirepo using git submodules and docker-compose:
 * [client](https://shop.amandaryman.com/list/)
 
 ## References
-* [debugging .NET with docker-compose](https://code.visualstudio.com/docs/containers/docker-compose#_net) for more info
+* [debugging .NET with docker-compose](https://code.visualstudio.com/docs/containers/docker-compose#_net)
 
 ## Todo
-* **NEXT**
+* general
 	* prod deployments
 	* [dbup and dapper](https://medium.com/cheranga/database-migrations-using-dbup-in-an-asp-net-core-web-api-application-c24ccfe0cb43)
-	* metabase y u no?
 	* create boilerplate for multirepo
-	* make two big decisions: backend/db/persistence, and frontend framework
-	* edit item
-	* delete item
-* finish dockerization
+	* metabase y u no?
 	* get swagger/openapi working in docker
 	* hot reloading for C#???
-	* update this readme with notes about ports, urls, etc
 	* add prod dockerization
 		* [dockerizing react](https://www.innokrea.com/dockerizing-the-frontend-do-it-right-with-react-js-vite/)
 		* [dockerizing .NET](https://learn.microsoft.com/en-us/dotnet/core/docker/build-container)
 * database
+	* handle modified_date
 	* get db with migrations up and running
-	* serial vs uuid for pk
 	* [dbup](https://github.com/DbUp/DbUp)
 	* [EF vs Dapper](https://youtu.be/7ZcbHFmgVAI?si=8_YyrjMR3TzqQM9s)
 * client
+	* frontend framework
 	* add husky pre-commit hooks for prettier and eslint
 * service
 	* add repo hierarchy to match entity hierarchy
 	* error handling
+
+
+**START HERE**
+repo hierarchy/inheritance
+look into creating db functions/views
+also maybe add `rmppostgres` as a task in vscode
