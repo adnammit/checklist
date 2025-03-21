@@ -24,6 +24,8 @@ Multirepo using git submodules and docker-compose:
 	* hot-reloading for the React app
 * [client url](localhost:3000)
 * [service url](localhost:5064) 
+	* [swagger](http://localhost:5064/swagger)
+	* [openapi](http://localhost:5064/openapi/v1.json)
 	* [default test endpoint](http://localhost:5064/test)
 	* [list items url](http://localhost:5064/list)
 	* [list item url](http://localhost:5064/list/item/1)
@@ -43,12 +45,13 @@ Multirepo using git submodules and docker-compose:
 	* [dbup and dapper](https://medium.com/cheranga/database-migrations-using-dbup-in-an-asp-net-core-web-api-application-c24ccfe0cb43)
 	* create boilerplate for multirepo
 	* metabase y u no?
-	* get swagger/openapi working in docker
+	* swagger test requests don't work
 	* hot reloading for C#???
 	* add prod dockerization
 		* [dockerizing react](https://www.innokrea.com/dockerizing-the-frontend-do-it-right-with-react-js-vite/)
 		* [dockerizing .NET](https://learn.microsoft.com/en-us/dotnet/core/docker/build-container)
 * database
+	* create `checklist` user to be used by app
 	* handle modified_date
 	* get db with migrations up and running
 	* [dbup](https://github.com/DbUp/DbUp)
@@ -62,6 +65,8 @@ Multirepo using git submodules and docker-compose:
 
 
 **START HERE**
+add crud to UI
+add /api/v1 to all endpoints
 repo hierarchy/inheritance
 look into creating db functions/views
 also maybe add `rmppostgres` as a task in vscode
